@@ -1,0 +1,1 @@
+使用cordova和bootstrap完成的简单备忘录程序。
