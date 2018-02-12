@@ -18,7 +18,7 @@
 
 <body>
     <div class="app">
-        <!-- 导航栏 -->
+        <!-- 导航栏,有添加和删除选项 -->
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -27,36 +27,39 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">备忘录操作</a>
+                    <a class="navbar-brand" href="#">备忘录</a>
                 </div>
                 <div class="collapse navbar-collapse" id="option-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active">
+                        <li>
                             <a href="#" data-toggle="modal" data-target="#add-note-model" id="link-add-note">添加</a>
                         </li>
                         <li>
-                            <a href="#">删除</a>
+                            <a href="#" id="link-delete-note">删除</a>
+                        </li>
+                        <li>
+                            <a href="#" id="link-cancel-delete-note">退出删除模式</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <!-- 模态框，用于添加项目 -->
+        <!-- 模态框，用于添加note -->
         <div class="modal fade" id="add-note-model" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <!-- 关闭按钮，其实是个乘号 -->
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">编辑您的备忘录</h4>
+                        <h4 class="modal-title">新建备忘录</h4>
                     </div>
 
                     <div class="modal-body">
                         <label class="modal-lable">备忘录标题：</label>
-                        <input id="note-title"></input>
+                        <input id="note-title" placeholder="请输入备忘录标题"></input>
                         <label class="modal-lable">备忘录内容：</label>
-                        <textarea id="note-content"></textarea>
+                        <textarea id="note-content" placeholder="请输入备忘录内容"></textarea>
                     </div>
 
                     <div class="modal-footer">
@@ -67,11 +70,31 @@
             </div>
         </div>
         <!-- 用于显示已记录note的父块 -->
-        <ul id="show-notes">
-            
-        </ul>
-    </div>
+        <div id = "div-show-notes">
+            <ul class="list-group" id="show-notes">
 
+            </ul>
+        </div>
+        <!-- 模态框，用于显示note详情 -->
+        <div class="modal fade" id="note-detail-model" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id='note-detail-model-title'></h4>
+                        </div>
+    
+                        <div class="modal-body" id='note-detail-model-content'>
+                            
+                        </div>
+    
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" id="note-save-button">关闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
